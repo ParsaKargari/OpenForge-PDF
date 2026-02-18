@@ -40,15 +40,21 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
 body {
   margin: 0;
-  min-height: 100vh;
+  height: 100%;
+  overflow: hidden;
   background: radial-gradient(circle at top, #1e293b, var(--color-bg-body));
   color: inherit;
 }
 
 #root {
-  min-height: 100vh;
+  height: 100%;
 }
 
 a {

@@ -1,32 +1,35 @@
 ## OpenForge PDF
 
+PDF tools that run in your browser. All processing is local; files never leave your device.
+
+### Tools
+
+- **Merge PDFs** – combine multiple PDFs into one.
+- **Reorganize PDF** – reorder pages in a single PDF.
+
 ### Stack
 
 - React + TypeScript + Vite
-- `pdf-lib` (PDF merging in the browser)
-- `pdfjs-dist` (first-page thumbnails for each PDF)
+- `pdf-lib` (merging and page reordering)
+- `pdfjs-dist` (page thumbnails)
 
-### Run locally (Node)
+### Run locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open the printed local URL (usually `http://localhost:5173`) in your browser.
+Open the printed URL (e.g. `http://localhost:5173`) in your browser.
 
-### Run with Docker
-
-Build the image:
+### Build
 
 ```bash
-docker build -t openforge-pdf .
+npm run build
 ```
 
-Run the dev server in a container:
+Output is in `dist/`. Use `npm run preview` to serve the production build locally.
 
-```bash
-docker run --rm -p 5173:5173 openforge-pdf
-```
+### License
 
-Then open `http://localhost:5173` in your browser.
+MIT. See [LICENSE](LICENSE).
