@@ -4,32 +4,29 @@
   display: flex;
   align-items: stretch;
   justify-content: center;
-  padding: 1rem 1rem;
+  padding: 0;
   color: var(--color-text-main);
   overflow: hidden;
 }
 
 .app-shell__inner {
   width: 100%;
-  max-width: 1600px;
+  max-width: 100%;
   display: flex;
   flex: 1;
   min-height: 0;
   gap: 0;
   background: var(--color-bg-shell);
-  border-radius: 1.5rem;
-  border: 1px solid var(--color-border-soft);
-  box-shadow:
-    0 24px 70px rgba(15, 23, 42, 0.85),
-    0 0 0 1px rgba(15, 23, 42, 0.8);
-  backdrop-filter: blur(18px);
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
   color: var(--color-text-main);
   overflow: hidden;
 }
 
 @media (max-width: 900px) {
   .app-shell {
-    padding: 1.5rem 1rem;
+    padding: 0;
   }
 
   .app-shell__inner {
@@ -40,7 +37,7 @@
 .app-shell__sidebar {
   flex-shrink: 0;
   padding: 1.5rem 1.5rem 1.25rem;
-  border-right: 1px solid var(--color-border-soft);
+  border-right: none;
   display: flex;
   flex-direction: column;
   gap: 1.75rem;
@@ -59,21 +56,20 @@
   flex-shrink: 0;
   width: 2rem;
   height: 2rem;
-  border-radius: 0.5rem;
-  border: 1px solid var(--color-border-soft);
-  background: var(--color-bg-surface);
+  border-radius: 6px;
+  border: none;
+  background: transparent;
   color: var(--color-text-main);
-  font-size: 1rem;
+  font-size: 1.1rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 0.5rem;
-  transition: border-color 0.15s ease, background-color 0.15s ease, transform 0.1s ease;
+  transition: background-color 0.15s ease, transform 0.1s ease;
 }
 
 .app-shell__sidebar-toggle:hover {
-  border-color: var(--color-accent-strong);
   background: var(--color-bg-soft);
 }
 
@@ -94,7 +90,7 @@
 @media (max-width: 900px) {
   .app-shell__sidebar {
     border-right: none;
-    border-bottom: 1px solid rgba(148, 163, 184, 0.28);
+    border-bottom: none;
   }
 }
 
@@ -115,7 +111,7 @@
   align-items: center;
   gap: 0.4rem;
   padding: 0.18rem 0.55rem;
-  border-radius: 999px;
+  border-radius: 4px;
   background: var(--color-bg-soft);
   border: 1px solid var(--color-border-soft);
   color: var(--color-text-muted);
@@ -128,7 +124,7 @@
   width: 0.4rem;
   height: 0.4rem;
   border-radius: 999px;
-  background: radial-gradient(circle at 30% 20%, #22c55e, #15803d);
+  background-color: #22c55e;
 }
 
 .app-brand__subtitle {
@@ -177,12 +173,7 @@
 }
 
 .tool-chip--active {
-  background: radial-gradient(
-    circle at top left,
-    var(--color-accent-soft),
-    var(--color-bg-shell)
-  );
-  border-color: var(--color-accent-strong);
+  background-color: var(--color-bg-soft);
   color: var(--color-text-main);
 }
 
@@ -191,13 +182,10 @@
 }
 
 .tool-chip:hover:not(.tool-chip--disabled) {
-  background: rgba(15, 23, 42, 0.85);
-  border-color: var(--color-border-soft);
-  transform: translateY(-1px);
+  background-color: var(--color-bg-soft);
 }
 
 .tool-chip:active:not(.tool-chip--disabled) {
-  transform: translateY(0);
 }
 
 .tool-chip--disabled {
@@ -214,13 +202,13 @@
 .tool-chip__icon {
   width: 1.8rem;
   height: 1.8rem;
-  border-radius: 0.7rem;
+  border-radius: 6px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-bg-surface);
-  border: 1px solid var(--color-border-soft);
-  font-size: 0.9rem;
+  background: transparent;
+  border: none;
+  font-size: 1.1rem;
 }
 
 .tool-chip__meta {
@@ -241,8 +229,9 @@
 .tool-chip__badge {
   font-size: 0.7rem;
   padding: 0.15rem 0.45rem;
-  border-radius: 0.7rem;
-  border: 1px solid var(--color-border-soft);
+  border-radius: 4px;
+  background-color: var(--color-bg-soft);
+  border: none;
   color: var(--color-text-muted);
 }
 
@@ -276,13 +265,7 @@
 .tool-panel {
   flex: 1;
   min-height: 0;
-  background: radial-gradient(
-    circle at top left,
-    var(--color-bg-shell),
-    var(--color-bg-surface)
-  );
-  border-radius: 1.2rem;
-  border: 1px solid var(--color-border-soft);
+  background-color: transparent;
   padding: 1.4rem 1.4rem 1.5rem;
   display: flex;
   flex-direction: column;
@@ -357,8 +340,8 @@
 .reorganize-tool__zoom-btn {
   width: 1.75rem;
   height: 1.75rem;
-  border-radius: 0.35rem;
-  border: 1px solid var(--color-border-soft);
+  border-radius: 6px;
+  border: 1px solid var(--color-border-strong);
   background: var(--color-bg-surface);
   color: var(--color-text-main);
   font-size: 1.1rem;
@@ -417,8 +400,8 @@
   align-items: center;
   gap: 0.2rem;
   padding: 0.3rem;
-  border-radius: 0.4rem;
-  border: 1px solid var(--color-border-soft);
+  border-radius: 6px;
+  border: 1px solid var(--color-border-subtle);
   background: var(--color-bg-surface);
   transition: border-color 0.15s ease;
   cursor: grab;
@@ -449,7 +432,7 @@
   right: 0.25rem;
   width: 1.5rem;
   height: 1.5rem;
-  border-radius: 0.35rem;
+  border-radius: 4px;
   border: 1px solid var(--color-border-soft);
   background: var(--color-bg-surface);
   color: var(--color-text-muted);
@@ -492,7 +475,7 @@
   height: var(--thumb-height, 128px);
   min-width: var(--thumb-width, 96px);
   min-height: var(--thumb-height, 128px);
-  border-radius: 0.35rem;
+  border-radius: 4px;
   border: 1px solid var(--color-border-subtle);
   background: #fff;
   overflow: hidden;
@@ -531,7 +514,7 @@
 .reorganize-tool__page-card-position {
   width: 1.2rem;
   height: 1.2rem;
-  border-radius: 999px;
+  border-radius: 4px;
   background: var(--color-bg-shell);
   border: 1px solid var(--color-border-strong);
   font-size: 0.65rem;
@@ -546,23 +529,18 @@
 .merge-tool__dropzone {
   flex-shrink: 0;
   border-radius: 1rem;
-  border: 1px dashed var(--color-border-soft);
-  background: radial-gradient(
-    circle at top left,
-    rgba(30, 64, 175, 0.18),
-    var(--color-bg-shell)
-  );
+  border: 1px dashed var(--color-border-strong);
+  background-color: transparent;
   padding: 1.1rem 1rem;
   cursor: pointer;
   transition:
     border-color 150ms ease,
-    background-color 150ms ease,
-    transform 120ms ease;
+    background-color 150ms ease;
 }
 
 .merge-tool__dropzone:hover {
   border-color: var(--color-accent-strong);
-  transform: translateY(-1px);
+  background-color: var(--color-bg-soft);
 }
 
 .merge-tool__dropzone-inner {
@@ -589,21 +567,13 @@
   position: absolute;
   inset: 0;
   border-radius: 0.7rem;
-  border: 1px solid var(--color-border-soft);
-  background: radial-gradient(
-    circle at top left,
-    rgba(56, 189, 248, 0.16),
-    var(--color-bg-surface)
-  );
+  border: 1px solid var(--color-border-strong);
+  background-color: var(--color-bg-surface);
 }
 
 .merge-tool__icon-layer--top {
   transform: translate(0.3rem, -0.35rem);
-  background: radial-gradient(
-    circle at top left,
-    var(--color-accent-soft),
-    var(--color-bg-shell)
-  );
+  background-color: var(--color-bg-soft);
 }
 
 .merge-tool__hint {
@@ -617,7 +587,7 @@
 }
 
 .merge-tool__browse {
-  border-radius: 999px;
+  border-radius: 6px;
   border: 1px solid var(--color-border-soft);
   background: var(--color-bg-surface);
   color: var(--color-text-main);
@@ -637,7 +607,7 @@
 }
 
 .merge-tool__files {
-  border-radius: 0.9rem;
+  border-radius: 8px;
   border: 1px solid var(--color-border-subtle);
   background: var(--color-bg-surface);
   padding: 0.75rem 0.8rem 0.7rem;
@@ -689,8 +659,8 @@
   align-items: center;
   position: relative;
   padding: 0.3rem;
-  border-radius: 0.4rem;
-  border: 1px solid var(--color-border-soft);
+  border-radius: 6px;
+  border: 1px solid var(--color-border-subtle);
   background: var(--color-bg-surface);
   transition: border-color 0.15s ease;
   cursor: grab;
@@ -727,7 +697,7 @@
   width: 96px;
   height: 128px;
   min-height: 128px;
-  border-radius: 0.35rem;
+  border-radius: 4px;
   border: 1px solid var(--color-border-subtle);
   background: #fff;
   overflow: hidden;
@@ -767,7 +737,7 @@
 .merge-tool__file-card-position {
   width: 1.2rem;
   height: 1.2rem;
-  border-radius: 999px;
+  border-radius: 4px;
   background: var(--color-bg-shell);
   border: 1px solid var(--color-border-strong);
   font-size: 0.65rem;
@@ -794,7 +764,7 @@
   right: 0.25rem;
   width: 1.5rem;
   height: 1.5rem;
-  border-radius: 0.35rem;
+  border-radius: 4px;
   border: 1px solid var(--color-border-soft);
   background: var(--color-bg-surface);
   color: var(--color-text-muted);
@@ -827,7 +797,7 @@
 }
 
 .merge-tool__preview {
-  border-radius: 0.7rem;
+  border-radius: 8px;
   border: 1px solid var(--color-border-subtle);
   background: var(--color-bg-shell);
   padding: 0.55rem 0.6rem 0.6rem;
@@ -852,8 +822,8 @@
 }
 
 .merge-tool__preview-frame {
-  border-radius: 0.55rem;
-  border: 1px solid var(--color-bg-body);
+  border-radius: 6px;
+  border: 1px solid var(--color-border-strong);
   background: var(--color-bg-shell);
   overflow: hidden;
   min-height: 160px;
@@ -869,7 +839,7 @@
 .merge-tool__icon-button {
   width: 1.8rem;
   height: 1.8rem;
-  border-radius: 999px;
+  border-radius: 6px;
   border: 1px solid var(--color-border-strong);
   background: var(--color-bg-shell);
   color: var(--color-text-main);
@@ -935,13 +905,19 @@
 }
 
 .merge-tool__filename-input {
-  border-radius: 0.6rem;
-  border: 1px solid var(--color-border-subtle);
+  border-radius: 6px;
+  border: 1px solid var(--color-border-strong);
   background: var(--color-bg-shell);
   color: var(--color-text-main);
   padding: 0.35rem 0.6rem;
   font-size: 0.82rem;
   min-width: 180px;
+  outline: none;
+}
+
+.merge-tool__filename-input:focus,
+.merge-tool__filename-input:focus-visible {
+  border-color: var(--color-text-muted);
 }
 
 .merge-tool__filename-input::placeholder {
@@ -964,7 +940,7 @@
 .merge-tool__spinner {
   width: 0.8rem;
   height: 0.8rem;
-  border-radius: 999px;
+  border-radius: 50%;
   border: 2px solid rgba(148, 163, 184, 0.3);
   border-top-color: var(--color-accent-strong);
   animation: merge-spin 650ms linear infinite;
@@ -984,23 +960,23 @@
 }
 
 .merge-tool__button {
-  border-radius: 999px;
-  border: 1px solid rgba(59, 130, 246, 0.95);
-  background: linear-gradient(to right, #2563eb, #4f46e5);
-  color: #e5e7eb;
+  border-radius: 6px;
+  border: none;
+  background-color: var(--color-text-main);
+  color: var(--color-bg-body);
   font-size: 0.86rem;
+  font-weight: 500;
   padding: 0.45rem 1.1rem;
   cursor: pointer;
-  transition: filter 0.15s ease, transform 0.1s ease, border-color 0.15s ease;
+  transition: opacity 0.15s ease, transform 0.1s ease;
 }
 
 .merge-tool__button:hover:not(:disabled) {
-  filter: brightness(1.12);
+  opacity: 0.9;
 }
 
 .merge-tool__button:active:not(:disabled) {
   transform: scale(0.98);
-  filter: brightness(1.05);
 }
 
 .merge-tool__button:disabled {
@@ -1009,10 +985,10 @@
 }
 
 .merge-tool__button--ghost {
-  border-radius: 999px;
-  border: 1px solid rgba(55, 65, 81, 0.95);
-  background: rgba(15, 23, 42, 0.96);
-  color: #e5e7eb;
+  border-radius: 6px;
+  border: 1px solid var(--color-border-strong);
+  background-color: transparent;
+  color: var(--color-text-main);
   font-size: 0.84rem;
   padding: 0.42rem 0.95rem;
   text-decoration: none;
@@ -1021,8 +997,8 @@
 }
 
 .merge-tool__button--ghost:hover:not(:disabled) {
-  border-color: var(--color-border-strong);
-  background: var(--color-bg-soft);
+  border-color: var(--color-text-muted);
+  background-color: var(--color-bg-soft);
 }
 
 .merge-tool__button--ghost:active:not(:disabled) {
@@ -1030,10 +1006,10 @@
 }
 
 .merge-tool__button--subtle {
-  border-radius: 999px;
+  border-radius: 6px;
   border: 1px solid transparent;
-  background: transparent;
-  color: #9ca3af;
+  background-color: transparent;
+  color: var(--color-text-muted);
   font-size: 0.82rem;
   padding: 0.4rem 0.7rem;
   cursor: pointer;
@@ -1041,8 +1017,8 @@
 }
 
 .merge-tool__button--subtle:hover:not(:disabled) {
-  color: var(--color-text-muted);
-  background: rgba(15, 23, 42, 0.6);
+  color: var(--color-text-main);
+  background-color: var(--color-bg-soft);
   border-color: var(--color-border-soft);
 }
 

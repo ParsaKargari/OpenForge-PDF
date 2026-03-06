@@ -11,7 +11,7 @@ interface ToolDefinition {
   name: string;
   description: string;
   badge?: string;
-  icon: string;
+  icon: React.ReactNode;
 }
 
 const TOOLS: ToolDefinition[] = [
@@ -19,13 +19,21 @@ const TOOLS: ToolDefinition[] = [
     id: "merge",
     name: "Merge PDFs",
     description: "Combine multiple PDF files into a single document.",
-    icon: "⇄",
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/>
+      </svg>
+    ),
   },
   {
     id: "reorganize",
     name: "Reorganize PDF",
     description: "Reorder pages in a single PDF.",
-    icon: "⋮⋮",
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+      </svg>
+    ),
   },
 ];
 
