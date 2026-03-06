@@ -1,0 +1,260 @@
+.compress-tool__file-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.2rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-bg-surface);
+  gap: 1rem;
+}
+
+.compress-tool__file-card-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.compress-tool__file-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 6px;
+  background: var(--color-bg-soft);
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.compress-tool__file-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.compress-tool__file-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.compress-tool__file-size {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.compress-tool__profiles-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.compress-tool__profiles-label {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.compress-tool__profiles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+@media (max-width: 700px) {
+  .compress-tool__profiles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.compress-tool__profile-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-bg-surface);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 150ms ease,
+    background-color 150ms ease,
+    transform 100ms ease;
+}
+
+.compress-tool__profile-card:hover:not(:disabled) {
+  border-color: var(--color-border-strong);
+  background: var(--color-bg-soft);
+}
+
+.compress-tool__profile-card:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.compress-tool__profile-card--active {
+  border-color: var(--color-accent-strong);
+  background: var(--color-bg-soft);
+}
+
+.compress-tool__profile-card:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.compress-tool__profile-name {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--color-text-main);
+}
+
+.compress-tool__profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.2rem;
+}
+
+.compress-tool__profile-badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  background: var(--color-text-main);
+  color: var(--color-bg-body);
+}
+
+.compress-tool__profile-card--active .compress-tool__profile-name {
+  color: var(--color-text-main);
+}
+
+.compress-tool__profile-desc {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  line-height: 1.35;
+}
+
+.compress-tool__profile-meta {
+  margin-top: 0.15rem;
+  font-size: 0.7rem;
+  color: var(--color-text-soft);
+  letter-spacing: 0.02em;
+}
+
+.compress-tool__profile-est {
+  margin-top: 0.1rem;
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+}
+
+/* Progress */
+
+.compress-tool__progress-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex-shrink: 0;
+  padding: 0.7rem 0.85rem;
+  border-radius: 0.75rem;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border-subtle);
+}
+
+.compress-tool__progress-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.compress-tool__progress-label {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.compress-tool__progress-pct {
+  font-size: 0.78rem;
+  color: var(--color-text-soft);
+}
+
+.compress-tool__progress-bar-track {
+  height: 4px;
+  border-radius: 999px;
+  background: var(--color-bg-soft);
+  overflow: hidden;
+}
+
+.compress-tool__progress-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--color-accent-strong);
+  transition: width 200ms ease;
+}
+
+/* Size stats */
+
+.compress-tool__stats {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+  padding: 0.65rem 0.85rem;
+  border-radius: 0.75rem;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border-subtle);
+  flex-wrap: wrap;
+}
+
+.compress-tool__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.compress-tool__stat-label {
+  font-size: 0.72rem;
+  color: var(--color-text-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.compress-tool__stat-value {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--color-text-main);
+}
+
+.compress-tool__stat-arrow {
+  font-size: 1rem;
+  color: var(--color-text-soft);
+}
+
+.compress-tool__stat-badge {
+  margin-left: auto;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.compress-tool__stat-badge--good {
+  background: rgba(34, 197, 94, 0.15);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.25);
+}
+
+.compress-tool__stat-badge--neutral {
+  background: var(--color-bg-soft);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border-soft);
+}
+
