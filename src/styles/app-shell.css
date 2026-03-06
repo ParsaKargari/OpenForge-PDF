@@ -1,0 +1,304 @@
+.app-shell {
+  height: 100vh;
+  max-height: 100dvh;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding: 0;
+  color: var(--color-text-main);
+  overflow: hidden;
+}
+
+.app-shell__inner {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  gap: 0;
+  background: var(--color-bg-shell);
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  color: var(--color-text-main);
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .app-shell {
+    padding: 0;
+  }
+
+  .app-shell__inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.app-shell__sidebar {
+  flex-shrink: 0;
+  padding: 1.5rem 1.5rem 1.25rem;
+  border-right: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  min-width: 0;
+}
+
+.app-shell__sidebar-content {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  flex: 1;
+}
+
+.app-shell__sidebar-toggle {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: var(--color-text-main);
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.app-shell__sidebar-toggle:hover {
+  background: var(--color-bg-soft);
+}
+
+.app-shell__sidebar-toggle:active {
+  transform: scale(0.96);
+}
+
+.app-shell__sidebar.app-shell__sidebar--collapsed {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.app-shell__sidebar.app-shell__sidebar--collapsed .app-shell__sidebar-toggle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 900px) {
+  .app-shell__sidebar {
+    border-right: none;
+    border-bottom: none;
+  }
+}
+
+.app-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.app-brand__name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.app-brand__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.18rem 0.55rem;
+  border-radius: 4px;
+  background: var(--color-bg-soft);
+  border: 1px solid var(--color-border-soft);
+  color: var(--color-text-muted);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.pill-dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 999px;
+  background-color: #22c55e;
+}
+
+.app-brand__subtitle {
+  margin-top: 0.2rem;
+  font-size: 0.86rem;
+  color: var(--color-text-muted);
+}
+
+.app-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.app-nav-label {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-text-soft);
+}
+
+.app-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.tool-chip {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 0.8rem;
+  border-radius: 0.9rem;
+  border: 1px solid transparent;
+  background: transparent;
+  color: inherit;
+  font-size: 0.9rem;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease,
+    transform 120ms ease;
+}
+
+.tool-chip--active {
+  background-color: var(--color-bg-soft);
+  color: var(--color-text-main);
+}
+
+.tool-chip--active .tool-chip__name {
+  font-weight: 500;
+}
+
+.tool-chip:hover:not(.tool-chip--disabled) {
+  background-color: var(--color-bg-soft);
+}
+
+.tool-chip--disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.tool-chip__left {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.tool-chip__icon {
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  font-size: 1.1rem;
+}
+
+.tool-chip__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.tool-chip__name {
+  font-size: 0.9rem;
+}
+
+.tool-chip__description {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.tool-chip__badge {
+  font-size: 0.7rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  background-color: var(--color-bg-soft);
+  border: none;
+  color: var(--color-text-muted);
+}
+
+.app-footer {
+  margin-top: auto;
+  font-size: 0.78rem;
+  color: var(--color-text-soft);
+}
+
+.app-footer strong {
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.app-shell__content {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  padding: 1.25rem 1.5rem 1.25rem 1rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 900px) {
+  .app-shell__content {
+    padding: 1.25rem 1.5rem 1.5rem;
+  }
+}
+
+.tool-panel {
+  flex: 1;
+  min-height: 0;
+  background-color: transparent;
+  padding: 1.4rem 1.4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  overflow: hidden;
+}
+
+.tool-panel__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.tool-panel__eyebrow {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-text-soft);
+}
+
+.tool-panel__title {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.tool-panel__description {
+  font-size: 0.86rem;
+  color: var(--color-text-muted);
+}
+
+.tool-panel__body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5rem;
+  overflow: hidden;
+}
+

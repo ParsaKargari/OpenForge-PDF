@@ -1,10 +1,12 @@
 import { motion, AnimatePresence } from "framer-motion";
+import { Files, PanelsTopLeft, FileArchive } from "lucide-react";
 import "./App.css";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import { MergePdfTool } from "./tools/MergePdfTool";
 import { ReorganizePdfTool } from "./tools/ReorganizePdfTool";
+import { CompressPdfTool } from "./tools/CompressPdfTool";
 
-type ToolId = "merge" | "reorganize";
+type ToolId = "merge" | "reorganize" | "compress";
 
 interface ToolDefinition {
   id: ToolId;
@@ -20,9 +22,7 @@ const TOOLS: ToolDefinition[] = [
     name: "Merge PDFs",
     description: "Combine multiple PDF files into a single document.",
     icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/>
-      </svg>
+      <Files size={18} aria-hidden="true" />
     ),
   },
   {
@@ -30,9 +30,15 @@ const TOOLS: ToolDefinition[] = [
     name: "Reorganize PDF",
     description: "Reorder pages in a single PDF.",
     icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
-      </svg>
+      <PanelsTopLeft size={18} aria-hidden="true" />
+    ),
+  },
+  {
+    id: "compress",
+    name: "Compress PDF",
+    description: "Compress a single PDF file.",
+    icon: (
+      <FileArchive size={18} aria-hidden="true" />
     ),
   },
 ];
@@ -43,7 +49,10 @@ function App() {
     "merge",
     {
       parse: (raw) => {
-        const v = raw === "merge" || raw === "reorganize" ? raw : null;
+        const v =
+          raw === "merge" || raw === "reorganize" || raw === "compress"
+            ? raw
+            : null;
         return v;
       },
     },
@@ -93,8 +102,7 @@ function App() {
                     <span>Private by design</span>
                   </div>
                   <p className="app-brand__subtitle">
-                    A focused set of minimal tools to work with PDFs—starting
-                    with merging, fully in your browser.
+                    A focused set of minimal tools to work with PDFs.
                   </p>
                 </div>
 
@@ -190,6 +198,29 @@ function App() {
 
             <div className="tool-panel__body">
               <ReorganizePdfTool />
+            </div>
+          </section>
+
+          <section
+            className="tool-panel"
+            aria-label="Compress PDF"
+            aria-hidden={activeTool !== "compress"}
+            style={{
+              display: activeTool === "compress" ? undefined : "none",
+            }}
+          >
+            <header className="tool-panel__header">
+              <div className="tool-panel__eyebrow">Compress</div>
+              <h1 className="tool-panel__title">Reduce PDF file size</h1>
+              <p className="tool-panel__description">
+                Upload a PDF and choose a compression level. Each page is
+                re-rendered at the selected quality — all in your browser,
+                nothing uploaded.
+              </p>
+            </header>
+
+            <div className="tool-panel__body">
+              <CompressPdfTool />
             </div>
           </section>
         </main>
